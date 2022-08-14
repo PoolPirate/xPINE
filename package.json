@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "truffle compile && typechain --target=web3-v1 'app/src/contracts/*.json' && ng serve",
-    "build": "ng build",
+    "build": "truffle compile && typechain --target=web3-v1 'app/src/contracts/*.json' && ng build",
     "generate-types": "typechain --target=web3-v1 'app/src/contracts/*.json'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -17,6 +17,7 @@ RUN echo "Cloning code"
 RUN git clone https://${github_username}:${github_token}@github.com/TU-Blockchain-Lab/role-based-dao.git App \
     && cd App \
     && npm i
+    && npm run build
 
 WORKDIR /root
 COPY entrypoint.sh /root/entrypoint.sh
