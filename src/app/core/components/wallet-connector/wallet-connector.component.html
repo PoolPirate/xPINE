@@ -1,0 +1,11 @@
+<div *ngIf="walletService.isConnected">
+  <div (click)="disconnect()" class="wallet-button btn">
+      {{ walletService.currentAccount }}
+  </div>
+</div>
+<div *ngIf="!walletService.isConnected">
+  <div (click)="connect()" class="wallet-button btn">
+    <img src="/assets/images/wallet.png" height ="20" width="20"/>
+    &nbsp; Connect Wallet
+  </div>
+</div>

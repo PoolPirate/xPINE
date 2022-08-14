@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #D9D9D9;">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img src="/assets/images/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      xPINE DAO
+    </a>
+    <div class="btns">
+      <a class="btn" href="https://en.wikipedia.org/wiki/Closed-cone_pine_forest">Docs</a>
+      <wallet-connector></wallet-connector>
+    </div>
+</nav>
+
+<m-web3-modal title="Connect Wallet"></m-web3-modal>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+<h1>USDC Approval</h1>
+
+<div id="usdcapprove">
+  <p>
+    You have approved spending:
+    <mat-spinner *ngIf="approvedBalance == null"></mat-spinner>
+    <b *ngIf="approvedBalance != null">{{ adjustedApprovedBalance }}</b>
+    USDC tokens
+  </p>
+  <p>
+    You are holding:
+    <mat-spinner *ngIf="usdcBalance == null"></mat-spinner>
+    <b *ngIf="usdcBalance != null">{{ adjustedUsdcBalance }}</b>
+    USDC tokens
+  </p>
+  <button mat-raised-button (click)="approve()">
+    Approve more USDC
+  </button>
+</div>
+
+<h1>Balance</h1>
+
+<p>
+  You are holding:
+  <mat-spinner *ngIf="xPineBalance == null"></mat-spinner>
+  <b *ngIf="xPineBalance != null">{{ adjustedxPineBalance }}</b>
+  xPINE tokens
+</p>
+
+<h1>Mint AND Burn</h1>
+
+<mat-form-field appearance="fill">
+  <input matInput placeholder="0" [formControl]="mintInput" required>
+  <button matSuffix mat-icon-button (click)="mintInput.setValue(adjustedUsdcBalance)">
+    max
+  </button>
+  <mat-error *ngIf="mintInput.invalid">
+    {{ mintInput.hasError('min') ? "Must be larger than 0" : "" }}
+    {{ mintInput.hasError('max') ? mintInput.getError('max') : "" }}
+  </mat-error>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="mint()">
+  Mint
+</button>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <input matInput placeholder="0" [formControl]="burnInput" required>
+  <button matSuffix mat-icon-button (click)="burnInput.setValue(adjustedxPineBalance)">
+    max
+  </button>
+  <mat-error *ngIf="burnInput.invalid">
+    {{ burnInput.hasError('min') ? "Must be larger than 0" : "" }}
+    {{ mintInput.hasError('max') ? mintInput.getError('max') : "" }}
+  </mat-error>
+</mat-form-field>
+<button mat-raised-button color="accent" (click)="burn()">
+  Burn
+</button>
